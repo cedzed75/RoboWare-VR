@@ -310,6 +310,7 @@ MonoBehaviour:
   - {fileID: 1976183032}
   - {fileID: 278823049}
   knifeObject: {fileID: 13456436177471813, guid: 6646e39b8fc9e21459dcf3e9fbef3f34, type: 3}
+  MinigameLength: 35
 --- !u!1 &239748183
 GameObject:
   m_ObjectHideFlags: 0
