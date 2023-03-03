@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 //using EzySlice;
 
 public class KnifeCutter : MonoBehaviour
@@ -12,6 +13,8 @@ public class KnifeCutter : MonoBehaviour
     public GameObject slicedCheesePrefab;
     public GameObject burgerBunsPrefab;
 
+    public static event Action WinConditionEvent;
+
     void OnCollisionEnter(Collision collision)
     {
         // Check for a match with the specified name on any GameObject that collides with your GameObject
@@ -19,21 +22,13 @@ public class KnifeCutter : MonoBehaviour
         if (collision.gameObject.tag == "Cuttable" && collision.gameObject != null) {
             Debug.Log("object: " + collision.gameObject.name);
             // If the GameObject's tag matches the one you suggest, output this message in the console
-            Debug.Log("Do something here");
-            Vector3 myVector = new Vector3(0.0f, 1.0f, 0.0f);
+
+            WinConditionEvent?.Invoke();
+
             GameObject thisGuy = gameObject;
-            if (collision.gameObject.name == "Apple") {
-                Instantiate(slicedApplePrefab, collision.transform.position, Quaternion.identity);
-            } else if (collision.gameObject.name == "Pickle") {
-                Instantiate(slicedPicklePrefab, collision.transform.position, Quaternion.identity);
-            } else if (collision.gameObject.name == "Tomato") {
+            if (collision.gameObject.name == "Tomato") {
                 Instantiate(slicedTomatoPrefab, collision.transform.position, Quaternion.identity);
-            } else if (collision.gameObject.name == "WheelCheese") {
-                Instantiate(slicedCheesePrefab, collision.transform.position, Quaternion.identity);
-            } else if (collision.gameObject.name == "Bread") {
-                Instantiate(burgerBunsPrefab, collision.transform.position, Quaternion.identity);
-            } else {
-                Instantiate(applePrefab, collision.transform.position, Quaternion.identity);
+                
             }
             Destroy(collision.gameObject);
         }
