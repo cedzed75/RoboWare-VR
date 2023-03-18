@@ -7386,6 +7386,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1442865932}
+    - target: {fileID: 11723387439844094, guid: 6646e39b8fc9e21459dcf3e9fbef3f34, type: 3}
+      propertyPath: slicedTomatoPrefab
+      value: 
+      objectReference: {fileID: 3772756709573635241, guid: 3a1077c02df7bff4d9672fcc2f916d3a, type: 3}
     - target: {fileID: 13456436177471813, guid: 6646e39b8fc9e21459dcf3e9fbef3f34, type: 3}
       propertyPath: m_Name
       value: Knife2
