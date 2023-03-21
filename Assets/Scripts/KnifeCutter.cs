@@ -6,12 +6,7 @@ using System;
 
 public class KnifeCutter : MonoBehaviour
 {
-    public GameObject applePrefab;
-    public GameObject slicedApplePrefab;
-    public GameObject slicedPicklePrefab;
     public GameObject slicedTomatoPrefab;
-    public GameObject slicedCheesePrefab;
-    public GameObject burgerBunsPrefab;
 
     public static event Action WinConditionEvent;
 
@@ -28,7 +23,8 @@ public class KnifeCutter : MonoBehaviour
             GameObject thisGuy = gameObject;
             if (collision.gameObject.name == "Tomato") {
                 Instantiate(slicedTomatoPrefab, collision.transform.position, Quaternion.identity);
-                
+                Instantiate(slicedTomatoPrefab, collision.transform.position, Quaternion.identity);
+                Instantiate(slicedTomatoPrefab, collision.transform.position, Quaternion.identity);
             }
             Destroy(collision.gameObject);
         }
