@@ -8,8 +8,10 @@ public class Stage_Minigame : MonoBehaviour
     public GameObject spotlightObject;
     public GameObject microphoneObject;
 
-    public float MinigameLength = 10f;
+    public float MinigameLength = 25f;
+    public bool playerHasMic = false;
     bool gameOver = false;
+    bool position = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,18 +31,49 @@ public class Stage_Minigame : MonoBehaviour
         Debug.Log(spawnPos);
         Debug.Log(spawnPos2);
 
-
-        //kO.GetComponent<Transform>().position = knifeArray[spawnPos].transform.position + new Vector3(0f, 0f, 0f);
-
         //Debug.Log(spawnPos);
 
         //Round Timer
-        //KnifeCutter.WinConditionEvent += GameWin;
+        grabChecker.WinConditionEvent += GameWin;
+        SpotlightCollision.PositionCorrectEvent += PositionCorrect;
+        SpotlightCollision.PositionWrongEvent += PositionWrong;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        MinigameLength -= Time.deltaTime;
+
+        if (MinigameLength <= 0.0f)
+        {
+            gameOver = true;
+            Debug.Log("GAME OVER");
+        }
+    }
+
+    void GameWin()
+    {
+        if (gameOver)
+            return;
+        if(!position)
+        {
+            return;
+        }
+        Debug.Log("YOU WIN");
+        MinigameLength = float.MaxValue;
+    }
+
+    void PositionCorrect()
+    {
+        position = true;
+        Debug.Log("Position is right");
+    }
+
+    void PositionWrong()
+    {
+        position = false;
+        Debug.Log("Position is WRONG");
     }
 }
+

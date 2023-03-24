@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 6033339420788562229}
   - component: {fileID: 6033339420788562228}
   - component: {fileID: 6033339420788562231}
+  - component: {fileID: 358907337181447890}
   m_Layer: 0
   m_Name: Microphone Prefab 1
-  m_TagString: Untagged
+  m_TagString: Microphone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +32,6 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.37355444, z: -0, w: 0.92760825}
   m_LocalPosition: {x: 0.0032186229, y: -0.71, z: 0.0073586255}
   m_LocalScale: {x: 20, y: 20, z: 20}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 344455176813181919}
   m_Father: {fileID: 0}
@@ -56,7 +56,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -242,6 +241,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5f8e12c769e66624b9850e2554f1c7c4, type: 3}
+--- !u!114 &358907337181447890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345855883098157765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f52925301569f4a83d854382420121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rHand: {fileID: 0}
+  lHand: {fileID: 0}
 --- !u!1 &345920756294597299
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +283,6 @@ Transform:
   m_LocalRotation: {x: -0.000000044703484, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.12854598, z: 0.017756522}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 349068459977463851}
   m_RootOrder: 0
@@ -294,7 +306,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
