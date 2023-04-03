@@ -10,7 +10,7 @@ public class SpotlightCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("SpotLight"))
+        if (other.gameObject.CompareTag("Spotlight"))
         {
             PositionCorrectEvent?.Invoke();
             Debug.Log("Player In Correct Boundary");
@@ -19,7 +19,7 @@ public class SpotlightCollision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("SpotLight"))
+        if (other.gameObject.CompareTag("Spotlight"))
         {
             PositionWrongEvent?.Invoke();
             Debug.Log("Player In Wrong Boundary");
