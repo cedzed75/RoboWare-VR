@@ -6,7 +6,7 @@ public class TriggerWorkPls : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-            Debug.Log("ALERT");
+        Debug.Log("ALERT");
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stage_Minigame : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class Stage_Minigame : MonoBehaviour
 
     public float MinigameLength = 25f;
     public bool playerHasMic = false;
-    bool gameOver = false;
+
+    bool timeExpired = false;
     bool position = false;
+    public Text timerTxt;
+    public Text lifeTxt;
 
     // Start is called before the first frame update
     void Start()
@@ -43,25 +47,34 @@ public class Stage_Minigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MinigameLength -= Time.deltaTime;
 
+        if (!timeExpired)
+        {
+            MinigameLength -= Time.deltaTime;
+        }
+        
         if (MinigameLength <= 0.0f)
         {
-            gameOver = true;
-            Debug.Log("GAME OVER");
+            timerTxt.text = "TIME OVER";
+            timeExpired = true;
+            Debug.Log("Time OVER");
+        }
+        else
+        {
+            timerTxt.text = "Timer: <color='yellow'>" + (int)MinigameLength + "</color>";
         }
     }
 
     void GameWin()
     {
-        if (gameOver)
+        if (timeExpired)
             return;
         if(!position)
         {
             return;
         }
         Debug.Log("YOU WIN");
-        MinigameLength = float.MaxValue;
+        timeExpired = true;
     }
 
     void PositionCorrect()
