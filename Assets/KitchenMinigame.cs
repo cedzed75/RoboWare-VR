@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //using System;
 
 public class KitchenMinigame : MonoBehaviour
@@ -9,7 +10,11 @@ public class KitchenMinigame : MonoBehaviour
     public GameObject knifeObject;
 
     public float MinigameLength = 10f;
-    bool gameOver = false;
+    bool timeExpired = false;
+
+
+    public Text timerTxt;
+    public Text descTxt;
 
     // Start is called before the first frame update
     void Start()
@@ -27,21 +32,31 @@ public class KitchenMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MinigameLength -= Time.deltaTime;
+        if (!timeExpired) { MinigameLength -= Time.deltaTime; }
 
         if (MinigameLength <= 0.0f)
         {
-            gameOver = true;
-            Debug.Log("GAME OVER");
+            timerTxt.text = "TIME OVER";
+            timeExpired = true;
+            GameLose();
+        }
+        else
+        {
+            timerTxt.text = "Timer: <color='yellow'>" + (int)MinigameLength + "</color>";
         }
     }
 
     void GameWin()
     {
-        if (gameOver)
+        if (timeExpired)
             return;
         Debug.Log("YOU WIN");
-        MinigameLength = float.MaxValue;
+        timeExpired = true;
+        descTxt.text = "<color='green'>YOU WIN!!!</color>";
+    }
+
+    void GameLose()
+    { 
 
     }
 }

@@ -15,6 +15,7 @@ public class Stage_Minigame : MonoBehaviour
     bool timeExpired = false;
     bool position = false;
     public Text timerTxt;
+    public Text descTxt;
     public Text lifeTxt;
 
     // Start is called before the first frame update
@@ -73,7 +74,7 @@ public class Stage_Minigame : MonoBehaviour
         {
             return;
         }
-        Debug.Log("YOU WIN");
+        descTxt.text = "<color='green'>YOU WIN!!!</color>";
         timeExpired = true;
     }
 
