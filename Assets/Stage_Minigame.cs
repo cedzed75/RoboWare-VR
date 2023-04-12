@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Stage_Minigame : MonoBehaviour
@@ -10,6 +11,7 @@ public class Stage_Minigame : MonoBehaviour
     public GameObject microphoneObject;
 
     public float MinigameLength = 25f;
+    float cooldownLength = 5f;
     public bool playerHasMic = false;
 
     bool timeExpired = false;
@@ -36,7 +38,6 @@ public class Stage_Minigame : MonoBehaviour
         Debug.Log(spawnPos);
         Debug.Log(spawnPos2);
 
-        //Debug.Log(spawnPos);
 
         //Round Timer
         grabChecker.WinConditionEvent += GameWin;
@@ -58,11 +59,18 @@ public class Stage_Minigame : MonoBehaviour
         {
             timerTxt.text = "TIME OVER";
             timeExpired = true;
-            Debug.Log("Time OVER");
+            cooldownLength -= Time.deltaTime;
+
         }
         else
         {
             timerTxt.text = "Timer: <color='yellow'>" + (int)MinigameLength + "</color>";
+        }
+
+        if(cooldownLength <= 0.0f)
+        {
+            if(timeExpired) PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives") - 1);
+            SceneManager.LoadScene("WaitingRoom");
         }
     }
 
@@ -74,6 +82,7 @@ public class Stage_Minigame : MonoBehaviour
         {
             return;
         }
+        MinigameLength = 0f;
         descTxt.text = "<color='green'>YOU WIN!!!</color>";
         timeExpired = true;
     }
@@ -81,13 +90,11 @@ public class Stage_Minigame : MonoBehaviour
     void PositionCorrect()
     {
         position = true;
-        Debug.Log("Position is right");
     }
 
     void PositionWrong()
     {
         position = false;
-        Debug.Log("Position is WRONG");
     }
 }
 

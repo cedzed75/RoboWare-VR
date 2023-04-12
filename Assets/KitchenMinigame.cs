@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 //using System;
 
@@ -10,6 +11,7 @@ public class KitchenMinigame : MonoBehaviour
     public GameObject knifeObject;
 
     public float MinigameLength = 10f;
+    float cooldownLength = 5f;
     bool timeExpired = false;
 
 
@@ -38,11 +40,17 @@ public class KitchenMinigame : MonoBehaviour
         {
             timerTxt.text = "TIME OVER";
             timeExpired = true;
-            GameLose();
+            cooldownLength -= Time.deltaTime;
         }
         else
         {
             timerTxt.text = "Timer: <color='yellow'>" + (int)MinigameLength + "</color>";
+        }
+
+        if (cooldownLength <= 0.0f)
+        {
+            if (timeExpired) PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives") - 1);
+            SceneManager.LoadScene("WaitingRoom");
         }
     }
 
@@ -52,11 +60,8 @@ public class KitchenMinigame : MonoBehaviour
             return;
         Debug.Log("YOU WIN");
         timeExpired = true;
+        MinigameLength = 0f;
         descTxt.text = "<color='green'>YOU WIN!!!</color>";
     }
 
-    void GameLose()
-    { 
-
-    }
 }

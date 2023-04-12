@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TheatreScene.unity
+    guid: 254244216cbe8894ea0315e3f6d6185e
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: fc3b812c4a518ac47a810ecb9025220a
   m_configObjects:
     com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 72bd594a211fbe94387669d7c78c9363, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f3ef0bc7231f06e469f99d7016387562, type: 2}
