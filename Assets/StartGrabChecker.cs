@@ -15,7 +15,11 @@ public class StartGrabChecker : MonoBehaviour
     {
         //Set player prefs
         PlayerPrefs.SetInt("lives", 3);
+        PlayerPrefs.SetInt("attempts", 0);
         PlayerPrefs.SetInt("score", 0);
+
+        PlayerPrefs.SetFloat("fastest", 0f);
+        PlayerPrefs.SetFloat("slowest", 0f);
 
         GameObject[] go = GameObject.FindGameObjectsWithTag("GameController");
         rHand = go[1].GetComponent<XRRayInteractor>();

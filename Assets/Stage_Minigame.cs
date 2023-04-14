@@ -13,6 +13,7 @@ public class Stage_Minigame : MonoBehaviour
 
     public float MinigameLength = 25f;
     float cooldownLength = 5f;
+    float prefTimer = 0f;
     public bool playerHasMic = false;
 
     bool timeExpired = false;
@@ -26,6 +27,7 @@ public class Stage_Minigame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("attempts", PlayerPrefs.GetInt("attempts") + 1);
         int spawnPos, spawnPos2;
         while (true)
         {
@@ -40,7 +42,7 @@ public class Stage_Minigame : MonoBehaviour
 
         //Instantiate(microphoneObject, spawnArray[spawnPos2]);
 
-        lifeTxt.text = $"Lives: {PlayerPrefs.GetInt("lives")}";
+        lifeTxt.text = $"Lives: <color='yellow'> {PlayerPrefs.GetInt("lives")} </color>";
 
 
         //Round Timer
@@ -55,7 +57,8 @@ public class Stage_Minigame : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        prefTimer += Time.deltaTime;
         if (spotlightInstance.transform.position.x >= 4.5) //left bound
         {
             lightVel = new Vector3(-1, lightVel.y, lightVel.z);
@@ -108,7 +111,16 @@ public class Stage_Minigame : MonoBehaviour
         }
         MinigameLength = 0f;
         descTxt.text = "<color='green'>YOU WIN!!!</color>";
+
+        if (PlayerPrefs.GetFloat("fastest") == 0f) PlayerPrefs.SetFloat("fastest", prefTimer);
+        if (PlayerPrefs.GetFloat("slowest") == 0f) PlayerPrefs.SetFloat("slowest", prefTimer);
+
+        if (prefTimer <= PlayerPrefs.GetFloat("fastest")) PlayerPrefs.SetFloat("fastest", prefTimer);
+        if (prefTimer >= PlayerPrefs.GetFloat("slowest")) PlayerPrefs.SetFloat("slowest", prefTimer);
+
+
         PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + 1);
+
         timeExpired = true;
         gameWon = true;
     }

@@ -40,7 +40,7 @@ public class LoadNextMinigame : MonoBehaviour
 
     void IsPlayerEligible()
     {
-        if (PlayerPrefs.GetInt("lives") < 0)
+        if (PlayerPrefs.GetInt("lives") <= -1)
         {
             gameEnd = true;
         }

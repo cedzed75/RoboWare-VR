@@ -283,7 +283,7 @@ MonoBehaviour:
   spotlightObject: {fileID: 4076487547518955958, guid: d48233171fc9b084d97d8d47c390e6a6, type: 3}
   spotlightInstance: {fileID: 0}
   microphoneObject: {fileID: 345855883098157765, guid: 4e7dca538c1ec2e4fb7db3ce15ea0d7d, type: 3}
-  MinigameLength: 20
+  MinigameLength: 25
   playerHasMic: 0
   timerTxt: {fileID: 1349234024}
   descTxt: {fileID: 1631563299}
@@ -3768,6 +3768,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 672184323}
+    - target: {fileID: 3060462395332546667, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3060462395332546668, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

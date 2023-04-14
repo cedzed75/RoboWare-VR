@@ -310,7 +310,7 @@ MonoBehaviour:
   - {fileID: 1976183032}
   - {fileID: 278823049}
   knifeObject: {fileID: 13456436177471813, guid: 6646e39b8fc9e21459dcf3e9fbef3f34, type: 3}
-  MinigameLength: 35
+  MinigameLength: 25
   timerTxt: {fileID: 1435302396}
   descTxt: {fileID: 1032509964}
   livesTxt: {fileID: 1435302397}
@@ -5280,7 +5280,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3060462394653527813, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
       propertyPath: m_Text
-      value: Grab the <color="yellow">Knife</color>, Cut the <color="yellow">Tomato</color>
+      value: Find the <color="yellow">Knife</color>, Cut the <color="yellow">Tomato</color>
       objectReference: {fileID: 0}
     - target: {fileID: 3060462394653527815, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
       propertyPath: m_Name
