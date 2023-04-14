@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WaitingRoom.unity
     guid: 3aa27dea20fef264883140c9891563a2
+  - enabled: 1
+    path: Assets/Scenes/EndingRoom.unity
+    guid: 9a8fb0d6eaa77c64ca1f9e3f4f9bdbef
   m_configObjects:
     com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 72bd594a211fbe94387669d7c78c9363, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f3ef0bc7231f06e469f99d7016387562, type: 2}

@@ -16,6 +16,7 @@ public class Stage_Minigame : MonoBehaviour
 
     bool timeExpired = false;
     bool position = false;
+    bool gameWon = false;
     public Text timerTxt;
     public Text descTxt;
     public Text lifeTxt;
@@ -37,6 +38,8 @@ public class Stage_Minigame : MonoBehaviour
 
         Debug.Log(spawnPos);
         Debug.Log(spawnPos2);
+
+        lifeTxt.text = $"Lives: {PlayerPrefs.GetInt("lives")}";
 
 
         //Round Timer
@@ -69,7 +72,7 @@ public class Stage_Minigame : MonoBehaviour
 
         if(cooldownLength <= 0.0f)
         {
-            if(timeExpired) PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives") - 1);
+            if(!gameWon) PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives") - 1);
             SceneManager.LoadScene("WaitingRoom");
         }
     }
@@ -84,7 +87,9 @@ public class Stage_Minigame : MonoBehaviour
         }
         MinigameLength = 0f;
         descTxt.text = "<color='green'>YOU WIN!!!</color>";
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + 1);
         timeExpired = true;
+        gameWon = true;
     }
 
     void PositionCorrect()

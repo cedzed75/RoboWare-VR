@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2d228938467dcb948b69dcd8cd3655b7, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6c79c9fbf2377314b861b990a78af471, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -282,11 +282,11 @@ MonoBehaviour:
   - {fileID: 805917443}
   spotlightObject: {fileID: 4076487547518955958, guid: d48233171fc9b084d97d8d47c390e6a6, type: 3}
   microphoneObject: {fileID: 345855883098157765, guid: 4e7dca538c1ec2e4fb7db3ce15ea0d7d, type: 3}
-  MinigameLength: 30
+  MinigameLength: 20
   playerHasMic: 0
   timerTxt: {fileID: 1349234024}
   descTxt: {fileID: 1631563299}
-  lifeTxt: {fileID: 0}
+  lifeTxt: {fileID: 3060462394200504064}
 --- !u!1 &239748183
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,10 +322,10 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.222
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -3404,7 +3404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1716682512}
-  m_MoveSpeed: 1
+  m_MoveSpeed: 2
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
@@ -3856,3 +3856,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
+--- !u!114 &3060462394200504064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3060462394856213442, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
+  m_PrefabInstance: {fileID: 3060462394200504063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

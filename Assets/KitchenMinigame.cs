@@ -17,6 +17,7 @@ public class KitchenMinigame : MonoBehaviour
 
     public Text timerTxt;
     public Text descTxt;
+    public Text livesTxt;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,9 @@ public class KitchenMinigame : MonoBehaviour
         int spawnPos = UnityEngine.Random.Range(0, 15);
         GameObject kO = Instantiate(knifeObject, knifeArray[spawnPos]);
         kO.GetComponent<Transform>().position = knifeArray[spawnPos].transform.position + new Vector3(0f, 0f, 0f);
-        
-        Debug.Log(spawnPos);
+
+        livesTxt.text = $"Lives: {PlayerPrefs.GetInt("lives")}";
+
 
         //Round Timer
         KnifeCutter.WinConditionEvent += GameWin;
@@ -59,6 +61,7 @@ public class KitchenMinigame : MonoBehaviour
         if (timeExpired)
             return;
         Debug.Log("YOU WIN");
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + 1);
         timeExpired = true;
         MinigameLength = 0f;
         descTxt.text = "<color='green'>YOU WIN!!!</color>";

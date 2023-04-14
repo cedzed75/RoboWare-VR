@@ -9,20 +9,19 @@ public class LoadNextMinigame : MonoBehaviour
     int nextMinigame;
     float timer = 10f;
     bool gameEnd = false;
-    public GameObject player;
     void Start()
     {
         nextMinigame = UnityEngine.Random.Range(0, 2);
         Debug.Log("Minigame index generated");
-        IsPlayerEligible();
     }
 
     // Update is called once per frame
     void Update()
     {
+        IsPlayerEligible();
         if (gameEnd)
-        { 
-            //Load game end scene;
+        {
+            SceneManager.LoadScene("EndingRoom");
         }
         timer -= Time.deltaTime;
         if (timer <= 0)
@@ -30,21 +29,18 @@ public class LoadNextMinigame : MonoBehaviour
             if (nextMinigame == 0)
             {
                 SceneManager.LoadScene("KitchenScene");
-                Debug.Log("Kitchen scene chosen, failed to load");
             }
             else if (nextMinigame == 1)
             {
                 //load theatre
                 SceneManager.LoadScene("TheatreScene");
-                Debug.Log("Theatre scene chosen, failed to load");
             }
         }
     }
 
     void IsPlayerEligible()
     {
-        //check if player has lives left, if not, display fail message. if so, ignore and continue;
-        if (PlayerPrefs.GetInt("lives") == 0)
+        if (PlayerPrefs.GetInt("lives") < 0)
         {
             gameEnd = true;
         }
