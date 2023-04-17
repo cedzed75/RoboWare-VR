@@ -51,7 +51,7 @@ public class Stage_Minigame : MonoBehaviour
         SpotlightCollision.PositionWrongEvent += PositionWrong;
         spotlightInstance.GetComponent<Rigidbody>().WakeUp();
 
-        lightVel = new Vector3(1f, 0f, 1f);
+        lightVel = new Vector3(1.5f, 0f, 1.5f);
         
     }
 
@@ -61,19 +61,19 @@ public class Stage_Minigame : MonoBehaviour
         prefTimer += Time.deltaTime;
         if (spotlightInstance.transform.position.x >= 4.5) //left bound
         {
-            lightVel = new Vector3(-1, lightVel.y, lightVel.z);
+            lightVel = new Vector3(-3, lightVel.y, lightVel.z);
         }
         else if (spotlightInstance.transform.position.x <= -8.5) //right bound
         {
-            lightVel = new Vector3(1, lightVel.y, lightVel.z);
+            lightVel = new Vector3(3, lightVel.y, lightVel.z);
         }
         else if (spotlightInstance.transform.position.z <= -1.5) //top bound
         {
-            lightVel = new Vector3(lightVel.x, lightVel.y, 1);
+            lightVel = new Vector3(lightVel.x, lightVel.y, 3);
         }
         else if (spotlightInstance.transform.position.z >= .5) //bot bound
         {
-            lightVel = new Vector3(lightVel.x, lightVel.y, -1);
+            lightVel = new Vector3(lightVel.x, lightVel.y, -3);
         }
         spotlightInstance.GetComponent<Rigidbody>().velocity = lightVel;    
 

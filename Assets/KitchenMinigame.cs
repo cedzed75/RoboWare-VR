@@ -14,7 +14,7 @@ public class KitchenMinigame : MonoBehaviour
     float cooldownLength = 5f;
     float prefTimer;
     bool timeExpired = false;
-
+    bool gameWon = false;
 
     public Text timerTxt;
     public Text descTxt;
@@ -55,7 +55,7 @@ public class KitchenMinigame : MonoBehaviour
 
         if (cooldownLength <= 0.0f)
         {
-            if (timeExpired) PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives") - 1);
+            if (!gameWon) PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives") - 1);
             SceneManager.LoadScene("WaitingRoom");
         }
     }
@@ -64,6 +64,7 @@ public class KitchenMinigame : MonoBehaviour
     {
         if (timeExpired)
             return;
+        gameWon = true;
         PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + 1);
 
         if (PlayerPrefs.GetFloat("fastest") == 0f) PlayerPrefs.SetFloat("fastest", prefTimer);

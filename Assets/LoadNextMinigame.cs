@@ -23,6 +23,10 @@ public class LoadNextMinigame : MonoBehaviour
         {
             SceneManager.LoadScene("EndingRoom");
         }
+        if (PlayerPrefs.GetInt("attempts") == 10)
+        {
+            SceneManager.LoadScene("EndingRoom");
+        }
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
