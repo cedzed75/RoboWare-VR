@@ -3809,6 +3809,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 672184320}
     m_Modifications:
+    - target: {fileID: 3060462394653527814, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.71
+      objectReference: {fileID: 0}
     - target: {fileID: 3060462395332546666, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3904,6 +3908,10 @@ PrefabInstance:
     - target: {fileID: 3060462395332546669, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060462395515415950, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.7100029
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7713cde15cca296469f53eb3e0b85ab7, type: 3}
