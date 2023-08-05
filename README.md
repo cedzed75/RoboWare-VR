@@ -1,4 +1,4 @@
-# WarioWare VR
+# RoboWare VR
 
 ## Getting started
 
